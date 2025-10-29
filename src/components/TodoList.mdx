@@ -1,0 +1,52 @@
+# TodoList
+
+`TodoList` is a storage-agnostic, presentational component.
+
+It renders a list of tasks `Array<{ id: string; title: string; done: boolean }>` and exposes interaction hooks for a Higher-Order Component to supply behavior.
+
+- Provide `onToggle(id)`to provide a function to toggle a task between done and not done by id.
+- Provide `onDelete(id)`to provide a function to delete a task by id.
+- Provide `onRename(id, nextTitle)`to provide a function to delete a task by id, and nextTitle.
+
+## Usage
+
+```jsx
+import withTransientStorage from './withTransientStorage';
+import withLocalStorage from './withLocalStorage';
+import withSessionStorage from './withSessionStorage';
+import withBackenStorage from './withBackenStorage';
+import TodoList from './TodoList';
+
+
+export const TransientTodoList = withTransientStorage(TodoList);
+export const LocalStorageTodoList = withLocalStorage(TodoList);
+export const SessionStorageTodoList = withSessionStorage(TodoList);
+export const SessionBackenTodoList = withBackenStorage(TodoList);
+```
+
+## Design
+
+```jsx
+const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
+    if (!Array.isArray(data) || data.length === 0) {
+        return <div className={styles.empty}>No tasks yet</div>;
+    }
+
+    return (
+        <div>
+            {data.map((t) => (
+                <Task
+                    key={t.id ?? t.title}
+                    id={t.id}
+                    title={t.title}
+                    done={!!t.done}
+                    onToggle={onToggle}
+                    onDelete={onDelete}
+                    onRename={onRename}
+                />
+            ))}
+        </div>
+    );
+};
+
+```

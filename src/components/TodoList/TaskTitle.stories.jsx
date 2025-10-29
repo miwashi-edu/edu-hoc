@@ -2,7 +2,7 @@ import React from 'react';
 import TaskTitle from './TaskTitle';
 
 export default {
-    title: 'HOC/TaskTitle',
+    title: 'Todo/TaskTitle',
     component: TaskTitle,
     args: {
         id: 'task-1',

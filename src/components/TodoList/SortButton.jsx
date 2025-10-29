@@ -10,7 +10,7 @@ const SortButton = ({ isAsc, onToggle }) => (
         aria-label={isAsc ? 'Sort: Incomplete → Done' : 'Sort: Done → Incomplete'}
         title={isAsc ? 'Incomplete → Done' : 'Done → Incomplete'}
     >
-        {isAsc ? 'Done ↓' : 'Done ↑'}
+        {isAsc ? '↓' : '↑'}
     </button>
 );
 

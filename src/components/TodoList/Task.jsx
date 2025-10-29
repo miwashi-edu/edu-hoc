@@ -22,7 +22,7 @@ const Task = ({ id, title = 'untitled', done = false, onToggle = () => {}, onDel
                 onClick={(e) => { e.stopPropagation(); onDelete(id); }}
                 aria-label={`Delete "${title}"`}
             >
-                Delete
+                -
             </button>
         </article>
     );

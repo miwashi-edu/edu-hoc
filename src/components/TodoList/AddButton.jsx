@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TodoList.module.css';
 
-const AddButton = ({ onClick, label = '+ Add' }) => (
+const AddButton = ({ onClick, label = '+' }) => (
     <button
         type="button"
         className={styles.addButton}

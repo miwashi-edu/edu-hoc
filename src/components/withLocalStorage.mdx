@@ -1,0 +1,19 @@
+# withLocalStorage
+
+## Transient
+
+This HOC adds **persistency**, an ability to maintain states over refresh, and restart, it uses local storage
+for persistent storage over time.
+
+It is a **HOC**, a *Higher Order Component*, it has no view, only function, and enhances the Component it uses with persistency
+in local storage.
+
+## Usage
+
+```js
+//index.js
+import withLocalStorage from './withLocalStorage';
+import TodoList from './TodoList';
+
+export const LocalStorageTodoList = withLocalStorage(TodoList);
+```

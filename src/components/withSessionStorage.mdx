@@ -1,0 +1,20 @@
+# withTransientStorage
+
+## Transient
+
+This HOC adds **persistency** over a session, an ability to maintain states over refresh, but not restart, it uses session storage
+for persistent storage during a session.
+
+It is a **HOC**, a *Higher Order Component*, it has no view, only function, and enhances the Component it uses with transient
+storage.
+
+## Usage
+
+```js
+//index.js
+import withSessionStorage from './withSessionStorage';
+import TodoList from './TodoList';
+
+
+export const SessionStorageTodoList = withSessionStorage(TodoList);
+```

@@ -1,9 +1,9 @@
 import React from 'react';
-import { TransientTodoList } from '.'; // barrel
+import { LocalStorageTodoList } from '.'; // barrel
 
 export default {
-    title: 'HOC/TransientTodoList',
-    component: TransientTodoList,
+    title: 'HOC/LocalStorageTodoList',
+    component: LocalStorageTodoList,
 };
 
 export const Default = {

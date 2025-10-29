@@ -1,0 +1,20 @@
+# withTransientStorage
+
+## Transient
+
+**Transient** is the opposite of **persistent**, something that passes, and in this case it doesn't hold state over
+a refresh of the browser. It is a Component usable for tests.
+
+It is a **HOC**, a *Higher Order Component*, it has no view, only function, and enhances the Component it uses with transient
+storage.
+
+## Usage
+
+```js
+//index.js
+import withTransientStorage from './withTransientStorage';
+import TodoList from './TodoList';
+
+
+export const TransientTodoList = withTransientStorage(TodoList);
+```
