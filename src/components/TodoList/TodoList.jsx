@@ -2,13 +2,10 @@ import React from 'react';
 import Task from './Task';
 import styles from './TodoList.module.css';
 
-const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {} }) => {
+const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
     if (!Array.isArray(data) || data.length === 0) {
         return <div className={styles.empty}>No tasks yet</div>;
     }
-
-    const handleOnToggle = (id) => onToggle(id);
-    const handleOnDelete = (id) => onDelete(id);
 
     return (
         <div>
@@ -18,8 +15,9 @@ const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {} }) => {
                     id={t.id}
                     title={t.title}
                     done={!!t.done}
-                    onToggle={handleOnToggle}
-                    onDelete={handleOnDelete}
+                    onToggle={onToggle}
+                    onDelete={onDelete}
+                    onRename={onRename}
                 />
             ))}
         </div>

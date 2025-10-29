@@ -1,10 +1,8 @@
 import React from 'react';
+import TaskTitle from './TaskTitle';
 import styles from './TodoList.module.css';
 
-const Task = ({id, title = 'untitled', done = false, onToggle = () => {}, onDelete = () => {},}) => {
-    const handleOnToggle = (id) => onToggle(id);
-    const handleOnDelete = (id) => onDelete(id);
-
+const Task = ({ id, title = 'untitled', done = false, onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
     return (
         <article className={styles.task} data-done={done ? 'true' : 'false'}>
             <label className={styles.taskLabel}>
@@ -12,22 +10,22 @@ const Task = ({id, title = 'untitled', done = false, onToggle = () => {}, onDele
                     type="checkbox"
                     className={styles.taskCheckbox}
                     checked={done}
-                    onChange={() => handleOnToggle(id)}
+                    onChange={() => onToggle(id)}
                     aria-label={`Mark "${title}" as ${done ? 'not done' : 'done'}`}
                 />
-                <span className={styles.taskTitle}>{title}</span>
+                <TaskTitle id={id} title={title} onRename={onRename} />
             </label>
 
             <button
                 type="button"
                 className={styles.taskDelete}
-                onClick={() => handleOnDelete(id)}
+                onClick={(e) => { e.stopPropagation(); onDelete(id); }}
                 aria-label={`Delete "${title}"`}
             >
                 Delete
             </button>
         </article>
-    )
+    );
 };
 
 export default Task;

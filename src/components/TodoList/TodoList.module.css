@@ -58,7 +58,7 @@
 /* Task row */
 .task {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto; /* was: 1fr auto */
     align-items: center;
     gap: 8px;
     padding: 6px 0;
@@ -69,11 +69,13 @@
     border-bottom: 0;
 }
 
+/* Allow the label to shrink within the grid column */
 .taskLabel {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     user-select: none;
+    min-width: 0;             /* critical for truncation in flex/grid */
 }
 
 .taskCheckbox {
@@ -83,6 +85,11 @@
 
 .taskTitle {
     line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;       /* prevent wrapping */
+    min-width: 0;              /* ensure it can shrink */
+    max-width: 100%;
 }
 
 .task[data-done="true"] .taskTitle {
@@ -110,3 +117,30 @@
     font-size: 0.9rem;
     padding: 6px 0;
 }
+
+/* inline edit */
+.titleEditRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.titleInput {
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 0.9rem;
+    min-width: 140px;
+}
+
+.okButton {
+    cursor: pointer;
+    border: 1px solid #2684ff;
+    background: #2684ff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+.okButton:hover { filter: brightness(1.05); }
+
