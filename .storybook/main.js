@@ -1,6 +1,4 @@
-
-
-/** @type { import('@storybook/react-vite').StorybookConfig } */
+import { mergeConfig } from 'vite';
 const config = {
   "stories": [
     "../src/**/*.mdx",
@@ -15,6 +13,14 @@ const config = {
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
-  }
+  },
+  viteFinal: (config) =>
+      mergeConfig(config, {
+        // Option A: relative paths (works anywhere)
+        base: './',
+
+        // Option B: absolute to the repo path (use ONE of A or B)
+        // base: '/edu-hoc/',
+      }),
 };
 export default config;
