@@ -1,27 +1,18 @@
-# withLocalStorage
-
-## Transient
-
-This HOC adds **persistency**, an ability to maintain states over refresh, and restart, it uses local storage
-for persistent storage over time.
-
-It is a **HOC**, a *Higher Order Component*, it has no view, only function, and enhances the Component it uses with persistency
-in local storage.
-
-## Usage
-
-```js
-//index.js
+import{j as n}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-mQuddbTl.js";import"./iframe-DckVNL-3.js";import"./preload-helper-PPVm8Dsz.js";function o(t){const e={code:"code",em:"em",h1:"h1",h2:"h2",p:"p",pre:"pre",strong:"strong",...r(),...t.components};return n.jsxs(n.Fragment,{children:[n.jsx(e.h1,{id:"withlocalstorage",children:"withLocalStorage"}),`
+`,n.jsx(e.h2,{id:"transient",children:"Transient"}),`
+`,n.jsxs(e.p,{children:["This HOC adds ",n.jsx(e.strong,{children:"persistency"}),`, an ability to maintain states over refresh, and restart, it uses local storage
+for persistent storage over time.`]}),`
+`,n.jsxs(e.p,{children:["It is a ",n.jsx(e.strong,{children:"HOC"}),", a ",n.jsx(e.em,{children:"Higher Order Component"}),`, it has no view, only function, and enhances the Component it uses with persistency
+in local storage.`]}),`
+`,n.jsx(e.h2,{id:"usage",children:"Usage"}),`
+`,n.jsx(e.pre,{children:n.jsx(e.code,{className:"language-js",children:`//index.js
 import withLocalStorage from './withLocalStorage';
 import TodoList from './TodoList';
 
 export const LocalStorageTodoList = withLocalStorage(TodoList);
-```
-
-## Design
-
-```jsx
-import React, { useEffect, useState } from 'react';
+`})}),`
+`,n.jsx(e.h2,{id:"design",children:"Design"}),`
+`,n.jsx(e.pre,{children:n.jsx(e.code,{className:"language-jsx",children:`import React, { useEffect, useState } from 'react';
 import Header from './Header.jsx';
 import { generateID, toTask } from './util';
 
@@ -115,10 +106,10 @@ const withLocalStorage = (WrappedComponent) => {
     };
 
     WithLocalStorage.displayName =
-        `withLocalStorage(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+        \`withLocalStorage(\${WrappedComponent.displayName || WrappedComponent.name || 'Component'})\`;
 
     return WithLocalStorage;
 };
 
 export default withLocalStorage;
-```
+`})})]})}function c(t={}){const{wrapper:e}={...r(),...t.components};return e?n.jsx(e,{...t,children:n.jsx(o,{...t})}):o(t)}export{c as default};

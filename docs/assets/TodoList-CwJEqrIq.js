@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as i}from"./index-BE45qQWD.js";import"./iframe-DqL-CiGg.js";import"./preload-helper-PPVm8Dsz.js";function t(o){const n={code:"code",h1:"h1",h2:"h2",li:"li",p:"p",pre:"pre",ul:"ul",...i(),...o.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{id:"todolist",children:"TodoList"}),`
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as i}from"./index-mQuddbTl.js";import"./iframe-DckVNL-3.js";import"./preload-helper-PPVm8Dsz.js";function t(o){const n={code:"code",h1:"h1",h2:"h2",li:"li",p:"p",pre:"pre",ul:"ul",...i(),...o.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{id:"todolist",children:"TodoList"}),`
 `,e.jsxs(n.p,{children:[e.jsx(n.code,{children:"TodoList"})," is a storage-agnostic, presentational component."]}),`
 `,e.jsxs(n.p,{children:["It renders a list of tasks ",e.jsx(n.code,{children:"Array<{ id: string; title: string; done: boolean }>"})," and exposes interaction hooks for a Higher-Order Component to supply behavior."]}),`
 `,e.jsxs(n.ul,{children:[`

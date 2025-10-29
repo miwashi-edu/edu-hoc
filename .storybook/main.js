@@ -15,12 +15,6 @@ const config = {
     "options": {}
   },
   viteFinal: (config) =>
-      mergeConfig(config, {
-        // Option A: relative paths (works anywhere)
-        base: './',
-
-        // Option B: absolute to the repo path (use ONE of A or B)
-        // base: '/edu-hoc/',
-      }),
+      mergeConfig(config, {base: './',}),
 };
 export default config;
