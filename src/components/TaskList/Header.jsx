@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TodoList.module.css';
+import styles from './TaskList.module.css';
 import AddButton from './AddButton';
 import SortButton from './SortButton';
 

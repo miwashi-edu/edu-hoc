@@ -1,21 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './TodoList.module.css';
+import styles from './TaskList.module.css';
 
 const TaskTitle = ({ id, title, onRename = () => {} }) => {
     const [editing, setEditing] = useState(false);
     const [value, setValue] = useState(title ?? 'untitled');
     const inputRef = useRef(null);
 
-    // Keep local state in sync if title changes from outside
     useEffect(() => setValue(title ?? 'untitled'), [title]);
 
-    // Autofocus when entering edit mode
     useEffect(() => {
         if (editing && inputRef.current) inputRef.current.focus();
     }, [editing]);
 
     const enterEdit = (e) => {
-        // prevent the label from toggling the checkbox
         e.preventDefault();
         e.stopPropagation();
         setEditing(true);
@@ -29,21 +26,23 @@ const TaskTitle = ({ id, title, onRename = () => {} }) => {
         setEditing(false);
     };
 
+    const cancel = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setValue(title ?? 'untitled');
+        setEditing(false);
+    };
+
     const onKeyDown = (e) => {
         if (e.key === 'Enter') confirm(e);
-        if (e.key === 'Escape') {
-            e.preventDefault();
-            e.stopPropagation();
-            setValue(title ?? 'untitled');
-            setEditing(false);
-        }
+        if (e.key === 'Escape') cancel(e);
     };
 
     if (!editing) {
         return (
             <span
                 className={styles.taskTitle}
-                onMouseDown={(e) => e.preventDefault()}    // block label default early
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={enterEdit}
                 title="Click to edit"
             >
@@ -53,22 +52,34 @@ const TaskTitle = ({ id, title, onRename = () => {} }) => {
     }
 
     return (
-        <form className={styles.titleEditRow} onSubmit={confirm} onClick={(e) => e.stopPropagation()}>
+        <form
+            className={styles.titleEditRow}
+            onSubmit={confirm}
+            onClick={(e) => e.stopPropagation()}
+        >
             <input
                 ref={inputRef}
                 className={styles.titleInput}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 onKeyDown={onKeyDown}
-                onMouseDown={(e) => e.preventDefault()}   // keep label from toggling
+                onMouseDown={(e) => e.preventDefault()}
                 aria-label="Edit task title"
             />
             <button
                 type="submit"
                 className={styles.okButton}
-                onMouseDown={(e) => e.preventDefault()}   // avoid label toggle
+                onMouseDown={(e) => e.preventDefault()}
             >
-                OK
+                ✓
+            </button>
+            <button
+                type="button"
+                className={styles.cancelButton}
+                onClick={cancel}
+                onMouseDown={(e) => e.preventDefault()}
+            >
+                ✕
             </button>
         </form>
     );

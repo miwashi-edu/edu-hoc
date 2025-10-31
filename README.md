@@ -14,7 +14,7 @@ In short, HOCs enable **code reuse and behavioral composition**, React’s funct
 In React, components must start with a capital letter (**PascalCase**) so JSX knows to treat them as custom components — not HTML tags.
 Example:
 ```jsx
-const TodoList = () => {
+const TaskList = () => {
   return(<></>);
 }
 ```
@@ -41,14 +41,14 @@ Now that we have the pattern, we can use different HOCs to inject different stor
 
 ```js
 //index.js
-import TodoList from './TodoList';
+import TaskList from './TaskList';
 import withTransientStorage from './withTransientStorage';
 import withLocalStorage from './withLocalStorage';
 import withSessionStorage from './withSessionStorage';
 
-export const TransientTodoList = withTransientStorage(TodoList);
-export const LocalTodoList     = withLocalStorage(TodoList);
-export const SessionTodoList   = withSessionStorage(TodoList);
+export const TransientTodoList = withTransientStorage(TaskList);
+export const LocalTodoList     = withLocalStorage(TaskList);
+export const SessionTodoList   = withSessionStorage(TaskList);
 ```
 
 ## Transparency

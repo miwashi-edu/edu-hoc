@@ -1,13 +1,14 @@
-// AddButton.stories.jsx
 import React from 'react';
+import {action} from 'storybook/actions';
 import AddButton from './AddButton';
+
+const onClick = action('onClick');
 
 export default {
     title: 'Todo/AddButton',
     component: AddButton,
     args: {
-        label: '+ Add',
-        onClick: () => console.log('add clicked'),
+        onClick,
     },
     argTypes: {
         label: { control: 'text' },

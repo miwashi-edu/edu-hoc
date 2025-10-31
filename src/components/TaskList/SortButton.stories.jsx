@@ -1,12 +1,15 @@
 import React from 'react';
+import {action} from 'storybook/actions';
 import SortButton from './SortButton';
+
+const onToggle = action('onToggle');
 
 export default {
     title: 'Todo/SortButton',
     component: SortButton,
     args: {
         isAsc: true,
-        onToggle: () => console.log('toggle sort'),
+        onToggle
     },
     argTypes: {
         isAsc: { control: 'boolean' },
@@ -16,5 +19,8 @@ export default {
 export const Ascending = {};
 
 export const Descending = {
-    args: { isAsc: false },
+    args: {
+        isAsc: false,
+        onToggle
+    },
 };

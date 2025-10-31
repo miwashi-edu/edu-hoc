@@ -1,8 +1,8 @@
 import React from 'react';
 import Task from './Task';
-import styles from './TodoList.module.css';
+import styles from './TaskList.module.css';
 
-const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
+const TaskList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
     if (!Array.isArray(data) || data.length === 0) {
         return <div className={styles.empty}>No tasks yet</div>;
     }
@@ -24,4 +24,4 @@ const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRenam
     );
 };
 
-export default TodoList;
+export default TaskList;

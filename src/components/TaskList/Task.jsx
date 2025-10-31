@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskTitle from './TaskTitle';
-import styles from './TodoList.module.css';
+import styles from './TaskList.module.css';
 
 const Task = ({ id, title = 'untitled', done = false, onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
     return (

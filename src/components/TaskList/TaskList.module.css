@@ -142,7 +142,23 @@
     padding: 4px 8px;
     font-size: 0.8rem;
 }
-.okButton:hover { filter: brightness(1.05); }
+.okButton:hover {
+    filter: brightness(1.05);
+}
+
+.cancelButton {
+    cursor: pointer;
+    border: 1px solid #ff4d4f;
+    background: #ff4d4f;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+.cancelButton:hover {
+    filter: brightness(1.05);
+}
 
 .headerActions {
     display: inline-flex;

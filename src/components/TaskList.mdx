@@ -1,6 +1,6 @@
-# TodoList
+# TaskList
 
-`TodoList` is a storage-agnostic, presentational component.
+`TaskList` is a storage-agnostic, presentational component.
 
 It renders a list of tasks `Array<{ id: string; title: string; done: boolean }>` and exposes interaction hooks for a Higher-Order Component to supply behavior.
 
@@ -15,19 +15,19 @@ import withTransientStorage from './withTransientStorage';
 import withLocalStorage from './withLocalStorage';
 import withSessionStorage from './withSessionStorage';
 import withBackenStorage from './withBackenStorage';
-import TodoList from './TodoList';
+import TaskList from './TaskList';
 
 
-export const TransientTodoList = withTransientStorage(TodoList);
-export const LocalStorageTodoList = withLocalStorage(TodoList);
-export const SessionStorageTodoList = withSessionStorage(TodoList);
-export const SessionBackenTodoList = withBackenStorage(TodoList);
+export const TransientTodoList = withTransientStorage(TaskList);
+export const LocalStorageTodoList = withLocalStorage(TaskList);
+export const SessionStorageTodoList = withSessionStorage(TaskList);
+export const SessionBackenTodoList = withBackenStorage(TaskList);
 ```
 
 ## Design
 
 ```jsx
-const TodoList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
+const TaskList = ({ data = [], onToggle = () => {}, onDelete = () => {}, onRename = () => {} }) => {
     if (!Array.isArray(data) || data.length === 0) {
         return <div className={styles.empty}>No tasks yet</div>;
     }
