@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header.jsx';
 import { generateID, toTask } from './util';
 
-const DEFAULT_STORAGE_KEY = 'todos-local';
+const DEFAULT_STORAGE_KEY = 'tasks-local';
 
 const readFromStorage = (key) => {
     try {
@@ -74,7 +74,7 @@ const withLocalStorage = (WrappedComponent) => {
 
         return (
             <Header
-                title="Local Todos"
+                title="Local Tasks"
                 onAddTask={addUntitledTask}
                 onToggleSort={onToggleSort}
                 isSortAsc={isSortAsc}

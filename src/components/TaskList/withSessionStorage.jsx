@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header.jsx';
 import { generateID, toTask } from './util';
 
-const DEFAULT_STORAGE_KEY = 'todos-session';
+const DEFAULT_STORAGE_KEY = 'tasks-session';
 
 const readFromStorage = (key) => {
     try {
@@ -69,7 +69,7 @@ const withSessionStorage = (WrappedComponent) => {
 
         return (
             <Header
-                title="Session Todos"
+                title="Session Tasks"
                 onAddTask={addUntitledTask}
                 onToggleSort={onToggleSort}
                 isSortAsc={isSortAsc}

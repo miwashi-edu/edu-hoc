@@ -35,7 +35,7 @@ const withTransientStorage = (WrappedComponent) => {
 
         return (
             <Header
-                title="Transient Todos"
+                title="Transient Tasks"
                 onAddTask={addUntitledTask}
                 onToggleSort={onToggleSort}
                 isSortAsc={isSortAsc}
